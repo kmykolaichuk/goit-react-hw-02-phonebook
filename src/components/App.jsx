@@ -1,6 +1,5 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
 
 import ContactForm from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
@@ -24,7 +23,6 @@ class App extends React.Component {
   addContact = data => {
     data.id = nanoid();
     const { contacts } = this.state;
-    // const newContact = { data.id, data.name, data.number };
     const checkContact = contacts.find(contact => contact.name === data.name);
 
     checkContact
@@ -67,15 +65,5 @@ class App extends React.Component {
     );
   }
 }
-
-App.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-};
 
 export default App;
